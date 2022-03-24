@@ -8,3 +8,7 @@ html, body, #root {
 .full-height {
     height: 100%;
 }
+
+.white-background {
+    background-color: white;
+}

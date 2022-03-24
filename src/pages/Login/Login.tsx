@@ -1,21 +1,28 @@
-import { FC, useRef, useState } from "react";
+import { FC, useState } from "react";
 import { useAuth } from "contexts/AuthContext";
-import { Link, useNavigate } from "react-router-dom";
-import { Layout, Input, Row, Col, Card, Form, Button, Checkbox } from "antd";
+import { useNavigate } from "react-router-dom";
+import { Layout, Input, Row, Col, Card, Form, Button, Checkbox, Typography } from "antd";
 
 const { Content } = Layout;
+const { Text } = Typography;
 
 const Login: FC = () => {
-  const emailRef = useRef();
-  const passwordRef = useRef();
   const { login } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const history = useNavigate();
+  const navigate = useNavigate();
 
-  const handleSubmit = () => {};
-  const onFinish = (values: any) => {
-    console.log("Success:", values);
+  const onFinish = async (values: any) => {
+    try {
+        setError("")
+        setLoading(true)
+        await login(values.email, values.password)
+        navigate("/")
+      } catch {
+        setError("Failed to log in")
+      }
+  
+      setLoading(false)
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -63,9 +70,13 @@ const Login: FC = () => {
               >
                 <Checkbox>Remember me</Checkbox>
               </Form.Item>
+                <Text type="danger">{error}</Text>
+              <Form.Item>
+
+              </Form.Item>
 
               <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                <Button type="primary" htmlType="submit">
+                <Button type="primary" htmlType="submit" loading={loading}>
                   Submit
                 </Button>
               </Form.Item>

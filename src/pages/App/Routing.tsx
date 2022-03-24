@@ -2,11 +2,12 @@ import { FC } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "pages/Login";
 import Signup from "pages/Signup";
+import Home from "pages/Home";
 
 const Routing: FC = () => (
   <Router>
     <Routes>
-      <Route path="/" element={<Signup />} />
+      <Route path="/" element={<Home />} />
       <Route path="login" element={<Login />} />
     </Routes>
   </Router>
