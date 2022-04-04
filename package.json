@@ -2,6 +2,7 @@
   "name": "social",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://rachit1994.github.io/devsnest-social",
   "dependencies": {
     "@firebase/app-types": "^0.7.0",
     "@reduxjs/toolkit": "^1.8.0",
@@ -42,7 +43,9 @@
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "husky": {
     "hooks": {
