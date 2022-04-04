@@ -5,7 +5,7 @@ import Signup from "pages/Signup";
 import Home from "pages/Home";
 
 const Routing: FC = () => (
-  <Router>
+  <Router basename="/devsnest-social">
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="login" element={<Login />} />

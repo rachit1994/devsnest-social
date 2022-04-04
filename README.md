@@ -13,3 +13,23 @@ npm install eslint-config-prettier eslint-plugin-prettier prettier --save-dev
 "lint": "eslint .",
 "lint:fix": "eslint --fix",
 "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+
+
+### Deploying
+
+- NgRok
+    Download
+    Add auth `ngrok authtoken <token>`
+    `ngrok http 3000`
+
+- Github pages
+    `npm i -D gh-pages`
+    "homepage": "https://rachit1994.github.io/devsnest-social",
+    "scripts": {
+        ....,
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
+    }
+
+- Heroku
+    
